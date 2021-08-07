@@ -1,24 +1,8 @@
-const STORAGE_KEY = "TODO_APPS";
-
-/**
- * [
- *    {
- *      id: <int>
- *      task: <string>
- *      timestamp: <string>
- *      isCompleted: <boolean>
- *    }
- * ]
- */
+const STORAGE_KEY = "BOOKSHELF_APPS";
 
 let todos = [];
 
-/**
-  * Fungsi ini digunakan untuk memeriksa apakah localStorage didukung oleh browser atau tidak
-  * 
-  * @returns boolean 
-  */
- function isStorageExist() /* boolean */ {
+ function isStorageExist()  {
     if(typeof(Storage) === undefined){
         alert("Browser kamu tidak mendukung local storage");
         return false
@@ -26,22 +10,14 @@ let todos = [];
     return true;
 }
 
-/**
- * Fungsi ini digunakan untuk menyimpan data ke localStorage
- * berdasarkan KEY yang sudah ditetapkan sebelumnya.
- */
 function saveData() {
-    const parsed /* string */ = JSON.stringify(todos);
+    const parsed = JSON.stringify(todos);
     localStorage.setItem(STORAGE_KEY, parsed);
     document.dispatchEvent(new Event("ondatasaved"));
 }
 
-/**
- * Fungsi ini digunakan untuk memuat data dari localStorage
- * Dan memasukkan data hasil parsing ke variabel {@see todos}
- */
 function loadDataFromStorage() {
-    const serializedData /* string */ = localStorage.getItem(STORAGE_KEY);
+    const serializedData = localStorage.getItem(STORAGE_KEY);
     
     let data = JSON.parse(serializedData);
     
@@ -56,11 +32,12 @@ function updateDataToStorage() {
         saveData();
 }
 
-function composeTodoObject(task, timestamp, isCompleted) {
+function composeTodoObject(task, author, year, isCompleted) {
     return {
         id: +new Date(),
         task,
-        timestamp,
+        author,
+        year,
         isCompleted
     };
 }

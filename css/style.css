@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background: #5F30E2;
+    background: #305fe2;
     padding: 16px;
     color: white;
 }
@@ -77,7 +77,7 @@ header {
 }
 
 input[type=text],
-input[type=date] {
+input[type=number] {
     font-family: Raleway;
     background: #F5F1FF;
     border: 2px solid #9475EA;
@@ -94,7 +94,7 @@ input[type=date] {
     font-family: Raleway;
     border-radius: 16px;
     padding: 12px 24px;
-    border:2px solid #5F30E2;
+    border:2px solid #305fe2;
     color: black;
     font-size: 24px;
     margin-top: auto;
@@ -103,12 +103,13 @@ input[type=date] {
 }
 
 .btn-submit:hover{
-    background: #5F30E2;
+    background: #305fe2;
     color: white;
 }
 
+
 input[type=text],
-input[type=date],
+input[type=number],
 .btn-submit:focus{
     outline: none;
 }
